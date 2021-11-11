@@ -17,5 +17,17 @@ export const QUERY_USER= gql `
               title
             }
           }
+        me {
+          username
+          books {
+            _id
+            authors
+            description
+            bookId
+            image
+            link
+            title
+          }
+        }
     }    
 `
