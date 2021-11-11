@@ -23,6 +23,7 @@ const typeDefs = gql`
         user: User
     }
     type Query {
+        me: User
         users: [User]
         books: [User]
     }

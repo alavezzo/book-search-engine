@@ -6,7 +6,7 @@ const secret = 'mysecretsshhhh'
 const expiration = '2h';
 
 module.exports = {
-    authMiddleware: function (req, res, next) {
+    authMiddleware: function ({req}) {
         let token = req.query.token || req.headers.authorization || req.query.token;
 
         // if ["Bearer", "<tokenvalue>"]
@@ -23,10 +23,9 @@ module.exports = {
             req.user = data;
         } catch {
             console.log('Invalid token');
-            return res.status(400).json({ message: 'invalid token! '})
         }
 
-        next();
+        return req;
     },
     signToken: function ({ username, email, _id }) {
         const payload = { username, email, _id };
