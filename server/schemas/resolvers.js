@@ -41,6 +41,18 @@ const resolvers = {
             const token = signToken(user);
             return {token, user };
         },
+        deleteBook: async (parent, args, context) => {
+            
+            if (context.user) {
+                const deletedBook = await User.findByIdAndUpdate(
+                    { _id: context.user._id},
+                    { $pull: {savedBooks: {_id: args._id }}},
+                    { new: true }
+                    )
+                return deletedBook;
+            }
+            throw new AuthenticationError('Not logged in')
+        },
         saveBook: async (parent, args, context) => {
            
             if (context.user) {
@@ -53,22 +65,7 @@ const resolvers = {
             }
 
             throw new AuthenticationError('Not logged in');
-        },
-        deleteBook: async (parent, args, context) => {
-
-            if (context.user) {
-                const deletedBook = await User.findOneAndUpdate(
-                    { username: context.user.username},
-                    { $pull: { savedBooks: { _id: args._id }}},
-                    { new: true }
-                )
-
-                return deletedBook;
-            }
-            
-            throw new AuthenticationError('Not logged in')
         }
-
     }
 }
 
