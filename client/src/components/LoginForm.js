@@ -15,6 +15,7 @@ const LoginForm = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
+     console.log(userFormData)
   };
 
   const handleFormSubmit = async (event) => {
@@ -35,7 +36,8 @@ const LoginForm = () => {
       console.error(e);
       setShowAlert(true);
       }
-
+    
+     
     setUserFormData({
       username: '',
       email: '',
@@ -55,6 +57,7 @@ const LoginForm = () => {
             type='text'
             placeholder='Your email'
             name='email'
+            onBlur={handleInputChange}
             onChange={handleInputChange}
             value={userFormData.email}
             required
@@ -68,6 +71,7 @@ const LoginForm = () => {
             type='password'
             placeholder='Your password'
             name='password'
+            onBlur={handleInputChange}
             onChange={handleInputChange}
             value={userFormData.password}
             required
