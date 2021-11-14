@@ -1,4 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
+const { argsToArgsConfig } = require('graphql/type/definition');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -46,7 +47,7 @@ const resolvers = {
             if (context.user) {
                 const deletedBook = await User.findByIdAndUpdate(
                     { _id: context.user._id},
-                    { $pull: {savedBooks: {_id: args._id }}},
+                    { $pull: { savedBooks: {_id: {...args}} }},
                     { new: true }
                     )
                 return deletedBook;
