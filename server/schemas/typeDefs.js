@@ -7,7 +7,6 @@ const typeDefs = gql`
         email: String
         password: String
         savedBooks: [Book]
-        bookCount: Int
     }
     type Book {
         _id: ID

@@ -21,7 +21,7 @@ const bookSchema = new Schema({
     },
     title: {
         type: String,
-    },
+    }
 });
 
 module.exports = bookSchema;
