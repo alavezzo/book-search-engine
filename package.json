@@ -1,5 +1,6 @@
 {
   "name": "book-search-engine",
+  "homepage": "https://stormy-refuge-22632.herokuapp.com/",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -18,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/alavezzo/book-search-engine/issues"
   },
-  "homepage": "https://github.com/alavezzo/book-search-engine#readme",
   "dependencies": {
     "concurrently": "^6.3.0"
   }
