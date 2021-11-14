@@ -63,6 +63,7 @@ const SignupForm = () => {
             type='text'
             placeholder='Your username'
             name='username'
+            onBlur={handleInputChange}
             onChange={handleInputChange}
             value={userFormData.username}
             required
@@ -76,6 +77,7 @@ const SignupForm = () => {
             type='email'
             placeholder='Your email address'
             name='email'
+            onBlur={handleInputChange}
             onChange={handleInputChange}
             value={userFormData.email}
             required
@@ -89,6 +91,7 @@ const SignupForm = () => {
             type='password'
             placeholder='Your password'
             name='password'
+            onBlur={handleInputChange}
             onChange={handleInputChange}
             value={userFormData.password}
             required
