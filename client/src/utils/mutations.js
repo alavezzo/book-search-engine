@@ -31,17 +31,15 @@ export const SAVEBOOK = gql`
         }
     }
 `;
+
 export const DELETEBOOK = gql`
     mutation deleteBook($id: ID) {
-        deleteBook(id: $id) {
-           username
-           savedBooks {
-               description
-               authors 
-               link
-               image
-               _id
-           }
-        }
-}
+        deleteBook(_id: $id) {
+            _id
+            username
+            savedBooks {
+                _id
+            }
+        } 
+    }
 `;
