@@ -10,6 +10,7 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne(context.user)
                                             .select('-__v -password')
+                                            .populate('savedBooks')
                 return userData;
             }
 
@@ -17,6 +18,7 @@ const resolvers = {
         },
         users: async () => {
             return User.find()
+                        .populate('savedBooks')
         }
     },
     Mutation: {
