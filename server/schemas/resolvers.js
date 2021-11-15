@@ -49,7 +49,7 @@ const resolvers = {
             if (context.user) {
                 const deletedBook = await User.findByIdAndUpdate(
                     { _id: context.user._id},
-                    { $pull: { savedBooks: {bookId: args.bookId } }},
+                    { $pull: { savedBooks: {_id: args._id } }},
                     { new: true }
                     )
                 return deletedBook;

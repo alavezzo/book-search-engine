@@ -33,7 +33,7 @@ export const SAVEBOOK = gql`
 `;
 
 export const DELETEBOOK = gql`
-    mutation deleteBook($_id: String) {
+    mutation deleteBook($_id: ID) {
         deleteBook(_id: $id) {
             _id
             username
