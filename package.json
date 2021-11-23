@@ -20,6 +20,8 @@
     "url": "https://github.com/alavezzo/book-search-engine/issues"
   },
   "dependencies": {
+    "apollo-link": "^1.2.14",
+    "apollo-link-error": "^1.1.13",
     "concurrently": "^6.3.0"
   }
 }

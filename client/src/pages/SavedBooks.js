@@ -12,7 +12,7 @@ const SavedBooks = () => {
   
   const [deleteBook] = useMutation(DELETEBOOK)
 
-  const {loading, data} = useQuery(QUERY_ME); 
+  const {loading, data, refetch} = useQuery(QUERY_ME); 
 
   if (!data?.me) {
     return <h4>Users must be logged in to view this page!</h4>;
@@ -31,6 +31,7 @@ const SavedBooks = () => {
       })
       
       removeBookId(bookId)
+      refetch()
     } catch (e) {
       console.error(e)
     }
